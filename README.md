@@ -10,21 +10,29 @@ Or `brew tap morpheus-lab/morpheus` and then `brew install <formula>`.
 
 `brew help`, `man brew` or check [Homebrew's documentation](https://docs.brew.sh).
 
+## Maintainer Guidelines
+
 ## Create Tap
 
     brew tap-new morpheus-lab/morpheus
 
-## Upload Bottles
+### To add a new formula for `foo` version `2.3.4` from `$URL`
+
+* read [the Formula Cookbook](https://docs.brew.sh/Formula-Cookbook) or: `brew create $URL` and make edits
+* `brew install --build-from-source foo`
+* `brew audit --new-formula foo`
+* `git commit` with message formatted `foo 2.3.4 (new formula)`
+* [open a pull request](https://brew.sh/2020/11/18/homebrew-tap-with-bottles-uploaded-to-github-releases/) and fix any failing tests
+
+### Publish Automatically Built Bottles
 
 When a pull request making changes to a formula (or formulae) becomes green (all checks passed), then you can publish the built bottles. To do so, label your PR as `pr-pull` and the workflow will be triggered.
 
-## GitHub Workflows
+### Get GitHub Workflows
 
 The latest available GitHub workflows created with brew tap-new can be found under [`Homebrew/brew/Library/Homebrew/dev-cmd/tap-new.rb`](https://github.com/Homebrew/brew/blob/1a1aa3eed4ebda138f1f05806e957850c027eb4f/docs/Homebrew-homebrew-core-Maintainer-Guide.md).
 
-## Maintainer Guidelines
-
-### Locally Built Bottles
+### Add Locally Built Bottles
 
 #### Generate Bottle
 
