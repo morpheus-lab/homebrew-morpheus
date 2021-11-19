@@ -93,7 +93,9 @@ When a pull request making changes to a formula (or formulae) becomes green (all
 
 ### Get GitHub Workflows
 
-The latest available GitHub workflows created with brew tap-new can be found under [`Homebrew/brew/Library/Homebrew/dev-cmd/tap-new.rb`](https://github.com/Homebrew/brew/blob/1a1aa3eed4ebda138f1f05806e957850c027eb4f/docs/Homebrew-homebrew-core-Maintainer-Guide.md).
+The latest available GitHub workflows created with brew tap-new can be found under [`Homebrew/brew/Library/Homebrew/dev-cmd/tap-new.rb`](https://github.com/Homebrew/brew/blob/master/Library/Homebrew/dev-cmd/tap-new.rb).
+
+See also the [Homebrew-Core Maintainer Guide](https://github.com/Homebrew/brew/blob/master/docs/Homebrew-homebrew-core-Maintainer-Guide.md).
 
 ### Add Locally Built Bottles
 
