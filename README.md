@@ -141,9 +141,21 @@ Check formula for Homebrew coding style violations:
 
     brew audit morpheus
 
+Or check the whole tap:
+
+    brew audit --tap morpheus-lab/morpheus
+
 If necessary, let `brew` fix them automatically:
 
     brew audit --fix morpheus
+
+Check formulae for conformance to Homebrew style guidelines:
+
+    brew style morpheus-lab/morpheus
+
+Fix style violations automatically using:
+
+    brew style --fix morpheus-lab/morpheus
 
 Commit and push the updated bottle block for the formula. Provide a commit message in the style of:
 
