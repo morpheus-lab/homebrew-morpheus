@@ -1,18 +1,81 @@
-# Morpheus-lab Morpheus
+# Morpheus Homebrew Tap
 
-## How do I install these formulae?
+## User Guide
+### Install Homebrew
 
-`brew install morpheus-lab/morpheus/<formula>`
+[Homebrew](https://brew.sh/) is a free and open-source package manager for macOS that lets you easily install Morpheus and keep it up-to-date.
 
-Or `brew tap morpheus-lab/morpheus` and then `brew install <formula>`.
+If not already done, install Homebrew first.
 
-## Documentation
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 
-`brew help`, `man brew` or check [Homebrew's documentation](https://docs.brew.sh).
+### Install Morpheus
+
+#### 1. Tap
+
+If you have never used Homebrew to install Morpheus before, add this Morpheus tap first:
+
+    brew tap morpheus-lab/tap
+
+#### 2. Install
+
+Simply install the latest version of Morpheus with:
+
+    brew install morpheus
+
+And follow possibly emerging instructions from Homebrew.
+
+#### 3. Launch
+
+Start morpheus from the command line by typing:
+
+    morpheus-gui
+
+### Update Morpheus
+
+First, update the formulae and Homebrew itself:
+
+    brew update
+
+Find out what is outdated with:
+
+    brew outdated
+
+Upgrade everything with:
+
+    brew upgrade
+
+Or upgrade only Morpheus with:
+
+    brew upgrade morpheus
+
+More information about updating and, if desired, how to prevent Morpheus from being automatically updated by Homebrew, etc. can be found in the [Homebrew FAQ](https://docs.brew.sh/FAQ).
+
+### Install Specific Version of Morpheus
+
+To install a specific version of Morpheus, you can append the desired version number with ```@<VERSION>```:
+
+    brew install morpheus@<VERSION>
+
+An example would be: ```brew install morpheus@2.2.0b3```.
+
+To list all versions available online, you can simply do a ```brew search```:
+
+    brew search morpheus
+
+### Uninstall Morpheus
+
+Delete Morpheus with:
+
+    brew uninstall morpheus
+
+Forcibly remove Morpheus along with deleting all it's versions:
+
+    brew uninstall --force morpheus
 
 ## Maintainer Guidelines
 
-## Create Tap
+### Create Tap
 
     brew tap-new morpheus-lab/morpheus
 
@@ -49,37 +112,47 @@ Now, add the new bottle block line to the formula, e.g.:
 
     sha256 arm64_monterey: "0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef"
 
-Additional values such as `cellar: :any` can usually be omitted.
+Additional values such as `cellar: :any` can [usually be omitted](https://docs.brew.sh/Bottles#cellar-cellar).
 
 Alternatively, merge the new bottle block line with the existing formula using the `brew bottle` command:
 
-    brew bottle --merge morpheus--x.x.x.arm64_monterey.bottle.json
+    brew bottle --merge morpheus--<VERSION>.<OS>.bottle.json
 
-Replace x.x.x with the correct version number.
+Replace `<VERSION>` with the correct version number.
 
 #### Upload Bottle to GitHub
 
 Set GitHub credentials:
 
     export HOMEBREW_GITHUB_PACKAGES_USER=morpheus-lab
-    export HOMEBREW_GITHUB_PACKAGES_TOKEN=<personal access token>
+    export HOMEBREW_GITHUB_PACKAGES_TOKEN=<YOUR_PERSONAL_ACCESS_TOKEN>
 
 Add bottle to release tag:
 
-    brew pr-upload --upload-only --root-url="https://github.com/morpheus-lab/homebrew-morpheus/releases/download/morpheus-x.x.x"
+    brew pr-upload --upload-only --root-url="https://github.com/morpheus-lab/homebrew-morpheus/releases/download/morpheus-VERSION"
 
 Or upload bottle to GitHub Packages (Docker):
 
     brew pr-upload --upload-only --root-url="https://ghcr.io/v2/morpheus-lab/homebrew"
 
-#### Commit 
+#### Check & Commit
+
+Check formula for Homebrew coding style violations:
+
+    brew audit morpheus
+
+If necessary, let `brew` fix them automatically:
+
+    brew audit --fix morpheus
 
 Commit and push the updated bottle block for the formula. Provide a commit message in the style of:
 
-    git commit -m "morpheus: add x.x.x bottle"
+    git commit -m "morpheus: add <VERSION> bottle (<OS/ARCHITECTURE>)"
+
+Replace `<VERSION>` and `<OS/ARCHITECTURE>` with the corresponding values.
 
 #### Alternative: Combine `brew bottle` + `brew pr-upload` steps
 
 Run `brew bottle`, do not generate a new commit and upload to GitHub:
 
-    brew pr-upload --no-commit --root-url="https://github.com/morpheus-lab/homebrew-morpheus/releases/download/morpheus-x.x.x"
+    brew pr-upload --no-commit --root-url="https://github.com/morpheus-lab/homebrew-morpheus/releases/download/morpheus-VERSION"
