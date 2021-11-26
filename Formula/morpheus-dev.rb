@@ -1,9 +1,15 @@
-class MorpheusDevelop < Formula
+class MorpheusDev < Formula
   desc "Modelling environment for multi-cellular systems biology"
   homepage "https://morpheus.gitlab.io/"
+  url "https://gitlab.com/morpheus.lab/morpheus/-/archive/v2.2.6/morpheus-v2.2.6.tar.gz"
+  sha256 "ed39e034eb47972af730b1538a005d7703cf5817f39452fae3c9fdc0bf9efd23"
   license "BSD-3-Clause"
-
   head "https://gitlab.com/morpheus.lab/morpheus.git", branch: "release_2.2"
+
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+(?:-[a-z]+\d*)?)$/i)
+  end
 
   depends_on "boost" => :build
   depends_on "cmake" => :build
