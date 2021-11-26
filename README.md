@@ -103,12 +103,12 @@ See also the [Homebrew-Core Maintainer Guide](https://github.com/Homebrew/brew/b
 
 Prepare the formula for eventual bottling during installation, skipping any post-install steps:
 
-    brew install morpheus --build-bottle
+    brew install --build-bottle morpheus
 
 Generate a bottle (binary package) from a formula that was installed with
 `--build-bottle` and write bottle information to a JSON file:
 
-    brew bottle morpheus --no-rebuild --json
+    brew bottle --no-rebuild --json morpheus
 
 Now, add the new bottle block line to the formula, e.g.:
 
