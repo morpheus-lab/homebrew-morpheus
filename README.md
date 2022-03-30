@@ -15,7 +15,7 @@ If not already done, install Homebrew first.
 
 If you have never used Homebrew to install Morpheus before, add this Morpheus tap first:
 
-    brew tap morpheus-lab/tap
+    brew tap morpheus-lab/morpheus
 
 #### 2. Install
 
