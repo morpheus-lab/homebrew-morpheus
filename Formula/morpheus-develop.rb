@@ -1,4 +1,4 @@
-class MorpheusDev < Formula
+class MorpheusDevelop < Formula
   desc "Modelling environment for multi-cellular systems biology"
   homepage "https://morpheus.gitlab.io/"
   #url "https://gitlab.com/morpheus.lab/morpheus/-/archive/v2.2.6/morpheus-v2.2.6.tar.gz"
