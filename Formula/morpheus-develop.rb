@@ -69,7 +69,7 @@ class MorpheusDevelop < Formula
 
           ln -sf #{prefix}/Morpheus.app /Applications
 
-        For more information about this branch visit: https://gitlab.com/morpheus.lab/morpheus/-/tree/release_2.2
+        For more information about this branch visit: https://gitlab.com/morpheus.lab/morpheus/-/tree/develop
       EOS
     end
   end
