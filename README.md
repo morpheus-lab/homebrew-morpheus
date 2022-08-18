@@ -1,5 +1,9 @@
 # Morpheus Homebrew Tap
 
+Morpheus formulae for the [Homebrew](https://brew.sh/) package manager.
+
+For alternate versions of Morpheus see [`homebrew-morpheus-versions`](https://github.com/morpheus-lab/homebrew-morpheus-versions).
+
 ## User Guide
 ### Install Homebrew
 
