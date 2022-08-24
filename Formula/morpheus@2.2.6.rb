@@ -1,8 +1,8 @@
 class Morpheus < Formula
   desc "Modelling environment for multi-cellular systems biology"
   homepage "https://morpheus.gitlab.io/"
-  url "https://gitlab.com/morpheus.lab/morpheus/-/archive/v2.3.0/morpheus-v2.3.0.tar.gz"
-  sha256 "2fc6234281140f93e1b7ec8e02ed135578cc1bbb9aa91efe388bcffaa516e07f"
+  url "https://gitlab.com/morpheus.lab/morpheus/-/archive/v2.2.6/morpheus-v2.2.6.tar.gz"
+  sha256 "ed39e034eb47972af730b1538a005d7703cf5817f39452fae3c9fdc0bf9efd23"
   license "BSD-3-Clause"
 
   livecheck do
@@ -10,19 +10,19 @@ class Morpheus < Formula
     regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
-#  bottle do
-#    root_url "https://github.com/morpheus-lab/homebrew-morpheus/releases/download/morpheus-2.2.6"
-#    sha256 cellar: :any,                 arm64_monterey:               "f895c1c4757d1af1a99a795a80313d548cac928cf74f6c637101f57286f27110"
-#    sha256 cellar: :any,                 monterey:                     "6e9961d869546b16d93976f6aff99393477d7cd783a10df716f872d7d96209dd"
-#    sha256 cellar: :any,                 catalina:                     "d3f22b183cbb91227991e0e94440b8af0eeb05f0a56e90c2092dbd7bc2a7f4a5"
-#    sha256 cellar: :any_skip_relocation, x86_64_linux:                 "3264fd1d6fc496ff6b76cbf51c46ccefd0eed5b76d75df6ca6b510258c23de88"
-#  end
+  bottle do
+    root_url "https://github.com/morpheus-lab/homebrew-morpheus/releases/download/morpheus-2.2.6"
+    sha256 cellar: :any,                 arm64_monterey:               "f895c1c4757d1af1a99a795a80313d548cac928cf74f6c637101f57286f27110"
+    sha256 cellar: :any,                 monterey:                     "6e9961d869546b16d93976f6aff99393477d7cd783a10df716f872d7d96209dd"
+    sha256 cellar: :any,                 catalina:                     "d3f22b183cbb91227991e0e94440b8af0eeb05f0a56e90c2092dbd7bc2a7f4a5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:                 "3264fd1d6fc496ff6b76cbf51c46ccefd0eed5b76d75df6ca6b510258c23de88"
+  end
 
   depends_on "boost" => :build
   depends_on "cmake" => :build
   depends_on "doxygen" => :build
-  depends_on "ffmpeg"   # Runtime dependencies
-  depends_on "gnuplot"  # Runtime dependencies
+  depends_on "ffmpeg" # Runtime dependencies
+  depends_on "gnuplot"
   depends_on "graphviz"
   depends_on "libomp"
   depends_on "libtiff"
