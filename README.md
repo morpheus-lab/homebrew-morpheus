@@ -97,7 +97,19 @@ When a pull request making changes to a formula (or formulae) becomes green (all
 
 ### Get GitHub Workflows
 
-The latest available GitHub workflows created with brew tap-new can be found under [`Homebrew/brew/Library/Homebrew/dev-cmd/tap-new.rb`](https://github.com/Homebrew/brew/blob/master/Library/Homebrew/dev-cmd/tap-new.rb).
+The latest available GitHub workflows created with the [`brew tap-new`](https://docs.brew.sh/Manpage#tap-new-options-userrepo) command can be found in the Homebrew project under [`Homebrew/brew/Library/Homebrew/dev-cmd/tap-new.rb`](https://github.com/Homebrew/brew/blob/master/Library/Homebrew/dev-cmd/tap-new.rb). The two required GitHub workflow files `publish.yml` and `tests.yml` are embedded in `tap-new.rb` and should from time to time be copied from there and updated in the Morpheus tap.
+
+Or you simply create a new tap with e.g.
+
+    brew tap-new morpheus-lab/morpheus-tap-new 
+
+and this way generate two new YAML files which can be taken directly from the corresponding subfolder of the tap (in this example `/opt/homebrew/Library/Taps/morpheus-lab/homebrew-morpheus-tap-new`).
+
+If the second method is used, delete the temporary tap with
+
+    brew untap morpheus-lab/homebrew-morpheus-tap-new
+
+afterwards.
 
 See also the [Homebrew-Core Maintainer Guide](https://github.com/Homebrew/brew/blob/master/docs/Homebrew-homebrew-core-Maintainer-Guide.md).
 
