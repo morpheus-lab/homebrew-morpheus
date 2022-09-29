@@ -130,7 +130,7 @@ Now, add the new bottle block line to the formula, e.g.:
 
     sha256 arm64_monterey: "0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef"
 
-Additional values such as `cellar: :any` can [usually be omitted](https://docs.brew.sh/Bottles#cellar-cellar).
+Additional Cellar parameters such as [`cellar: :any` or `cellar: :any_skip_relocation`](https://docs.brew.sh/Bottles#cellar-cellar) **must be omitted**, otherwise the GUI will crash on startup due to missing libraries such as *QtXml*.
 
 Alternatively, merge the new bottle block line with the existing formula using the `brew bottle` command:
 
@@ -180,9 +180,3 @@ Commit and push the updated bottle block for the formula. Provide a commit messa
     git commit -m "morpheus: add <VERSION> bottle (<OS/ARCHITECTURE>)"
 
 Replace `<VERSION>` and `<OS/ARCHITECTURE>` with the corresponding values.
-
-#### Alternative: Combine `brew bottle` + `brew pr-upload` steps
-
-Run `brew bottle`, do not generate a new commit and upload to GitHub:
-
-    brew pr-upload --no-commit --root-url="https://github.com/morpheus-lab/homebrew-morpheus/releases/download/morpheus-VERSION"
