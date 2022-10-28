@@ -12,9 +12,9 @@ class Morpheus < Formula
 
   bottle do
     root_url "https://github.com/morpheus-lab/homebrew-morpheus/releases/download/morpheus-2.3.1"
-    rebuild 1
-    sha256 cellar: :any,                 monterey:     "15d0d293a78bc389193e5811f4042bbec2ecb6c786665bdd0e70cb987c41fc75"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "d506ce2d2163e884ec52501d53b6afb9aca3528128d5348d15ebc5c796c2fc29"
+    sha256 arm64_ventura: "8a0a9810eec9a298e68b5e878bfe70c91877528c3e4998b0615228935a8d2e23"
+    sha256 monterey:      "15d0d293a78bc389193e5811f4042bbec2ecb6c786665bdd0e70cb987c41fc75"
+    sha256 x86_64_linux:  "d506ce2d2163e884ec52501d53b6afb9aca3528128d5348d15ebc5c796c2fc29"
   end
 
   depends_on "boost" => :build
