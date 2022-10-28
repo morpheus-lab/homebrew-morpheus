@@ -5,6 +5,7 @@ class Morpheus < Formula
   sha256 "33c12825f0e0a9b52478713cd42936aaa3e92c50d21db50d6bc61099dd89c95f"
   license "BSD-3-Clause"
 
+  
   livecheck do
     url :stable
     regex(/^v?(\d+(?:\.\d+)+(?:_?\d+)?)$/i)
