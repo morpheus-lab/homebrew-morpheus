@@ -103,7 +103,7 @@ Or you simply create a new tap with e.g.
 
     brew tap-new morpheus-lab/morpheus-tap-new 
 
-and this way generate two new YAML files which can be taken directly from the corresponding subfolder of the tap (in this example `/opt/homebrew/Library/Taps/morpheus-lab/homebrew-morpheus-tap-new`).
+and this way generate two new YAML files which can be taken directly from the corresponding subfolder of the tap (in this example `/opt/homebrew/Library/Taps/morpheus-lab/homebrew-morpheus-tap-new/.github/workflows`).
 
 If the second method is used, delete the temporary tap with
 
