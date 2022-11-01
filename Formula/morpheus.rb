@@ -14,6 +14,7 @@ class Morpheus < Formula
     root_url "https://github.com/morpheus-lab/homebrew-morpheus/releases/download/morpheus-2.3.1"
     sha256 arm64_ventura: "8a0a9810eec9a298e68b5e878bfe70c91877528c3e4998b0615228935a8d2e23"
     sha256 monterey:      "15d0d293a78bc389193e5811f4042bbec2ecb6c786665bdd0e70cb987c41fc75"
+    sha256 catalina:      "1a771f764bd93660907461967492d18e96d5082aff98ddebdcfa2213cd9ba175"
     sha256 x86_64_linux:  "d506ce2d2163e884ec52501d53b6afb9aca3528128d5348d15ebc5c796c2fc29"
   end
 
