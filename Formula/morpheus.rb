@@ -2,7 +2,7 @@ class Morpheus < Formula
   desc "Modelling environment for multi-cellular systems biology"
   homepage "https://morpheus.gitlab.io/"
   url "https://gitlab.com/morpheus.lab/morpheus/-/archive/v2.3.3/morpheus-v2.3.3.tar.gz"
-  sha256 "9e83c624b0027c0d61e02b07814f03884586e450b2a6c968fb47c67ec646927e"
+  sha256 "b3e814a4b47dec1fb132701fa40a13708dc30f7027812dc35bd7fa90e59460cf"
   license "BSD-3-Clause"
 
   livecheck do
