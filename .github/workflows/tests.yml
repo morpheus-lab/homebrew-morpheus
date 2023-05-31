@@ -33,7 +33,7 @@ jobs:
 
       - run: brew test-bot --only-tap-syntax
 
-      - run: brew test-bot --only-formulae --root-url="morpheus-lab/morpheus"
+      - run: brew test-bot --only-formulae # --root-url="morpheus-lab/morpheus"
         if: github.event_name == 'pull_request'
 
       - name: Upload bottles as artifact
