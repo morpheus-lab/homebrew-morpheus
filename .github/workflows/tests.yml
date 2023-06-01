@@ -4,6 +4,8 @@ on:
     branches:
       - main
   pull_request:
+env:
+  HOMEBREW_GITHUB_API_TOKEN: ${{ github.token }}
 jobs:
   test-bot:
     strategy:
