@@ -1,5 +1,13 @@
 # Morpheus Homebrew Tap
 
+[![GitHub release (latest by date)](https://img.shields.io/github/v/release/morpheus-lab/homebrew-morpheus)](https://github.com/morpheus-lab/homebrew-morpheus/releases)
+[![brew test-bot](https://github.com/morpheus-lab/homebrew-morpheus/actions/workflows/tests.yml/badge.svg)](https://github.com/morpheus-lab/homebrew-morpheus/actions/workflows/tests.yml)
+[![GitHub last commit](https://img.shields.io/github/last-commit/morpheus-lab/homebrew-morpheus)](https://github.com/morpheus-lab/homebrew-morpheus/commits/main)
+[![GitHub](https://img.shields.io/github/license/morpheus-lab/homebrew-morpheus)](https://github.com/morpheus-lab/homebrew-morpheus/blob/main/LICENSE)
+[![Download](https://img.shields.io/badge/Download-Morpheus-blueviolet)](https://morpheus.gitlab.io/download/latest/)
+[![GitLab forks](https://img.shields.io/gitlab/forks/morpheus.lab/morpheus?style=social)](https://gitlab.com/morpheus.lab/morpheus)
+[![GitLab stars](https://img.shields.io/gitlab/stars/morpheus.lab/morpheus?style=social)](https://gitlab.com/morpheus.lab/morpheus)
+
 Morpheus formulae for the [Homebrew](https://brew.sh/) package manager.
 
 For alternate versions of Morpheus see [`homebrew-morpheus-versions`](https://github.com/morpheus-lab/homebrew-morpheus-versions).
