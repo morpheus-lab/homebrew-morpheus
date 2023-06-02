@@ -19,7 +19,7 @@ class Morpheus < Formula
   depends_on "boost" => :build
   depends_on "cmake" => :build
   depends_on "doxygen" => :build
-  depends_on "ffmpeg" # Runtime dependencies
+  depends_on "ffmpeg" => :recommended # Runtime dependencies
   depends_on "gnuplot"
   depends_on "graphviz"
   depends_on "libomp"
