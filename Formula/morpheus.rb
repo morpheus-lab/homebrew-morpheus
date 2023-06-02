@@ -12,7 +12,8 @@ class Morpheus < Formula
 
   bottle do
     root_url "https://github.com/morpheus-lab/homebrew-morpheus/releases/download/morpheus-2.3.4"
-    sha256 arm64_ventura: "2d55e46043a264e2a55f73b4189e5c46d880437fe851ef3b10b2a7e4bdf3d0e8"
+    sha256 cellar: :any, arm64_ventura: "2d55e46043a264e2a55f73b4189e5c46d880437fe851ef3b10b2a7e4bdf3d0e8"
+    sha256 cellar: :any, monterey:      "e6d87a28b2f7a1fff03aab80043cd3e1dc03b63fc728976f1496625707748e04"
   end
 
   depends_on "boost" => :build
