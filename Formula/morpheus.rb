@@ -10,6 +10,11 @@ class Morpheus < Formula
     regex(/^v?(\d+(?:\.\d+)+(?:_?\d+)?)$/i)
   end
 
+  bottle do
+    root_url "https://github.com/morpheus-lab/homebrew-morpheus/releases/download/morpheus-2.3.5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "847610f4942e1db49a5402660daa1b7bf8501eba9fdf98dc448a4da9a6750a69"
+  end
+
   depends_on "boost" => :build
   depends_on "cmake" => :build
   depends_on "doxygen" => :build
