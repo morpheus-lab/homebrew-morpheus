@@ -1,21 +1,13 @@
 class Morpheus < Formula
   desc "Modelling environment for multi-cellular systems biology"
   homepage "https://morpheus.gitlab.io/"
-  url "https://gitlab.com/morpheus.lab/morpheus/-/archive/v2.3.4/morpheus-v2.3.4.tar.gz"
-  sha256 "200acee035e61c56a0fd874e5a181888081ef5b6cd5daeb272a7a64cca29c542"
+  url "https://gitlab.com/morpheus.lab/morpheus/-/archive/v2.3.5/morpheus-v2.3.5.tar.gz"
+  sha256 "4270fb0d01939aa208025530f078931d806c57f608fa2798009d3adb0d6207f5"
   license "BSD-3-Clause"
 
   livecheck do
     url :stable
     regex(/^v?(\d+(?:\.\d+)+(?:_?\d+)?)$/i)
-  end
-
-  bottle do
-    root_url "https://github.com/morpheus-lab/homebrew-morpheus/releases/download/morpheus-2.3.4"
-    sha256 cellar: :any, arm64_ventura: "2d55e46043a264e2a55f73b4189e5c46d880437fe851ef3b10b2a7e4bdf3d0e8"
-    sha256 cellar: :any, ventura:       "8f357661b325ab746952085d7ae9bc60134382df386e3f42caf3fc80924f7241"
-    sha256 cellar: :any, monterey:      "e6d87a28b2f7a1fff03aab80043cd3e1dc03b63fc728976f1496625707748e04"
-    sha256 cellar: :any, catalina:      "e1c1760a2672dbf85862af45e75255fa7002398fafd1546b3ca3f9eff9d43520"
   end
 
   depends_on "boost" => :build
