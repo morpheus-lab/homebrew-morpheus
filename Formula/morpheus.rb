@@ -76,7 +76,7 @@ class Morpheus < Formula
 
           ln -sf #{prefix}/Morpheus.app /Applications
 
-        For more information about this version visit: https://morpheus.gitlab.io/download/latest/
+        For more information about this release, visit: https://morpheus.gitlab.io/download/latest/
       EOS
     end
   end
