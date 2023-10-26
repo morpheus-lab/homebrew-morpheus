@@ -12,6 +12,9 @@ class Morpheus < Formula
 
   bottle do
     root_url "https://github.com/morpheus-lab/homebrew-morpheus/releases/download/morpheus-2.3.5"
+    sha256 cellar: :any,                 arm64_sonoma: "668d598eca20eabf4f96f9fae8990a74365530a95d0075555bb27279e35952f4"
+    sha256 cellar: :any,                 sonoma:       "a8401d851948575372e43e63f2c9ac34477ac608c56775a3b44d261d71dc4ee9"
+    sha256 cellar: :any,                 ventura:      "d0ff492eff6c6ccccebd684dee3c948a49c8cdba1ae5ad2feb6323bc5a3e2410"
     sha256 cellar: :any_skip_relocation, x86_64_linux: "847610f4942e1db49a5402660daa1b7bf8501eba9fdf98dc448a4da9a6750a69"
   end
 
@@ -72,6 +75,8 @@ class Morpheus < Formula
         Or add Morpheus to your Applications folder with:
 
           ln -sf #{prefix}/Morpheus.app /Applications
+
+        For more information about this version visit: https://morpheus.gitlab.io/download/latest/
       EOS
     end
   end

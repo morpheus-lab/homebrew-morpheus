@@ -130,7 +130,7 @@ Prepare the formula for eventual bottling during installation, skipping any post
     brew install --build-bottle morpheus
 
 Generate a bottle (binary package) from a formula that was installed with
-`--build-bottle` and write bottle information to a JSON file:
+`--build-bottle` and write the bottle information to a JSON file in your working directory:
 
     brew bottle --no-rebuild --json morpheus
 
@@ -153,7 +153,7 @@ Set GitHub credentials:
     export HOMEBREW_GITHUB_PACKAGES_USER=morpheus-lab
     export HOMEBREW_GITHUB_PACKAGES_TOKEN=<YOUR_PERSONAL_ACCESS_TOKEN>
 
-Add bottle to release tag:
+To add all the bottles of a particular release to the release tag, navigate to the folder that contains the bottle(s) and type:
 
     brew pr-upload --upload-only --root-url="https://github.com/morpheus-lab/homebrew-morpheus/releases/download/morpheus-VERSION"
 
