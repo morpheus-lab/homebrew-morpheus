@@ -4,13 +4,16 @@
 [![brew test-bot](https://github.com/morpheus-lab/homebrew-morpheus/actions/workflows/tests.yml/badge.svg)](https://github.com/morpheus-lab/homebrew-morpheus/actions/workflows/tests.yml)
 [![GitHub last commit](https://img.shields.io/github/last-commit/morpheus-lab/homebrew-morpheus)](https://github.com/morpheus-lab/homebrew-morpheus/commits/main)
 [![GitHub](https://img.shields.io/github/license/morpheus-lab/homebrew-morpheus)](https://github.com/morpheus-lab/homebrew-morpheus/blob/main/LICENSE)
-[![Download](https://img.shields.io/badge/Download-Morpheus-blueviolet)](https://morpheus.gitlab.io/download/latest/)
+[![GitHub all releases](https://img.shields.io/github/downloads/morpheus-lab/homebrew-morpheus/total)](https://github.com/morpheus-lab/homebrew-morpheus/releases)
 [![GitLab forks](https://img.shields.io/gitlab/forks/morpheus.lab/morpheus?style=social)](https://gitlab.com/morpheus.lab/morpheus)
 [![GitLab stars](https://img.shields.io/gitlab/stars/morpheus.lab/morpheus?style=social)](https://gitlab.com/morpheus.lab/morpheus)
 
-Morpheus formulae for the [Homebrew](https://brew.sh/) package manager.
+[Morpheus](https://morpheus.gitlab.io/download/latest/) formulae for the [Homebrew](https://brew.sh/) package manager.
 
-For alternate versions of Morpheus see [`homebrew-morpheus-versions`](https://github.com/morpheus-lab/homebrew-morpheus-versions).
+> [!NOTE]
+> For a brief and complete overview of all **installation options** for Morpheus, please refer to the [Morpheus download page](https://morpheus.gitlab.io/download/latest/).
+
+For alternate versions of Morpheus, see [`homebrew-morpheus-versions`](https://github.com/morpheus-lab/homebrew-morpheus-versions).
 
 ## User Guide
 ### Install Homebrew
