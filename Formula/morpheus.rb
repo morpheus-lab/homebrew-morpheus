@@ -38,7 +38,7 @@ class Morpheus < Formula
     args << "-G Ninja"
     args << "-DMORPHEUS_RELEASE_BUNDLE=ON" if OS.mac?
 
-    system "cmake", *args , "."
+    system "cmake", *args, "."
     system "ninja", "install"
 
     if OS.mac?
