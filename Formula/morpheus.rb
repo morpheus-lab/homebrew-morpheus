@@ -21,6 +21,7 @@ class Morpheus < Formula
   depends_on "boost" => :build
   depends_on "cmake" => :build
   depends_on "doxygen" => :build
+  depends_on "ninja" => :build
   depends_on "gnuplot"
   depends_on "graphviz"
   depends_on "libomp"
@@ -34,10 +35,11 @@ class Morpheus < Formula
 
   def install
     args = std_cmake_args
+    args << "-G Ninja"
     args << "-DMORPHEUS_RELEASE_BUNDLE=ON" if OS.mac?
 
-    system "cmake", ".", *args
-    system "make", "install"
+    system "cmake", *args, "."
+    system "ninja", "install"
 
     if OS.mac?
       bin.write_exec_script "#{prefix}/Morpheus.app/Contents/MacOS/morpheus"
