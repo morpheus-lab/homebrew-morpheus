@@ -1,8 +1,8 @@
 class Morpheus < Formula
   desc "Modelling environment for multi-cellular systems biology"
   homepage "https://morpheus.gitlab.io/"
-  url "https://gitlab.com/morpheus.lab/morpheus/-/archive/v2.3.5/morpheus-v2.3.5.tar.gz"
-  sha256 "4270fb0d01939aa208025530f078931d806c57f608fa2798009d3adb0d6207f5"
+  url "https://gitlab.com/morpheus.lab/morpheus/-/archive/v2.3.6/morpheus-v2.3.6.tar.gz"
+  sha256 "abb277f3898467b51994e39ed0f4b38fc9aec79b98b126c6d17d971716612d82"
   license "BSD-3-Clause"
 
   livecheck do
@@ -11,11 +11,7 @@ class Morpheus < Formula
   end
 
   bottle do
-    root_url "https://github.com/morpheus-lab/homebrew-morpheus/releases/download/morpheus-2.3.5"
-    sha256 cellar: :any,                 arm64_sonoma: "668d598eca20eabf4f96f9fae8990a74365530a95d0075555bb27279e35952f4"
-    sha256 cellar: :any,                 sonoma:       "a8401d851948575372e43e63f2c9ac34477ac608c56775a3b44d261d71dc4ee9"
-    sha256 cellar: :any,                 ventura:      "d0ff492eff6c6ccccebd684dee3c948a49c8cdba1ae5ad2feb6323bc5a3e2410"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "847610f4942e1db49a5402660daa1b7bf8501eba9fdf98dc448a4da9a6750a69"
+    root_url "https://github.com/morpheus-lab/homebrew-morpheus/releases/download/morpheus-2.3.6"
   end
 
   depends_on "boost" => :build
@@ -36,7 +32,7 @@ class Morpheus < Formula
   def install
     args = std_cmake_args
     args << "-G Ninja"
-    args << "-DMORPHEUS_RELEASE_BUNDLE=ON" if OS.mac?
+    args << "-DMORPHEUS_RELEASE_BUNDLE=ON" << "-DMORHEUS_SBML=OFF" if OS.mac?
 
     system "cmake", *args, "."
     system "ninja", "install"
