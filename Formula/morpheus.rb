@@ -14,6 +14,8 @@ class Morpheus < Formula
     root_url "https://github.com/morpheus-lab/homebrew-morpheus/releases/download/morpheus-2.3.6"
   end
 
+  option "with-sbml", "Enable SBML import via the internal libSBML build"
+
   depends_on "boost" => :build
   depends_on "cmake" => :build
   depends_on "doxygen" => :build
@@ -32,12 +34,14 @@ class Morpheus < Formula
   def install
     args = std_cmake_args
     args << "-G Ninja"
-    args << "-DMORPHEUS_RELEASE_BUNDLE=ON" << "-DMORHEUS_SBML=OFF" if OS.mac?
+    args << "-DMORPHEUS_RELEASE_BUNDLE=ON" if OS.mac?
 
     system "cmake", *args, "."
     system "ninja", "install"
 
     if OS.mac?
+      args << "-DMORHEUS_SBML=OFF" if build.without? "sbml"
+
       bin.write_exec_script "#{prefix}/Morpheus.app/Contents/MacOS/morpheus"
 
       (bin/"morpheus-gui").write <<~EOS
