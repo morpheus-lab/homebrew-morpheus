@@ -33,15 +33,19 @@ class Morpheus < Formula
   uses_from_macos "zlib"
 
   def install
-    args = std_cmake_args
+    args = []
     args << "-G Ninja"
-    args << "-DMORPHEUS_RELEASE_BUNDLE=ON" if OS.mac?
 
-    # SBML import currently disabled by default due to libSBML build errors with some macOS SDKs
-    args << "-DMORPHEUS_SBML=OFF" if OS.mac? && build.without?("sbml")
+    if OS.mac?
+      args << "-DMORPHEUS_RELEASE_BUNDLE=ON"
 
-    system "cmake", *args, "."
-    system "ninja", "install"
+      # SBML import currently disabled by default due to libSBML build errors with some macOS SDKs
+      args << "-DMORPHEUS_SBML=OFF" if build.without? "sbml"
+    end
+
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
 
     if OS.mac?
       bin.write_exec_script "#{prefix}/Morpheus.app/Contents/MacOS/morpheus"
@@ -78,7 +82,7 @@ class Morpheus < Formula
 
         Or add Morpheus to your Applications folder with:
 
-          ln -sf #{prefix}/Morpheus.app /Applications
+          ln -sf #{opt_prefix}/Morpheus.app /Applications
 
         For more information about this release, visit: https://morpheus.gitlab.io/download/latest/
       EOS
