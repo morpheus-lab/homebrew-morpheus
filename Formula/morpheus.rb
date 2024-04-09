@@ -1,18 +1,13 @@
 class Morpheus < Formula
   desc "Modelling environment for multi-cellular systems biology"
   homepage "https://morpheus.gitlab.io/"
-  url "https://gitlab.com/morpheus.lab/morpheus/-/archive/v2.3.6/morpheus-v2.3.6.tar.gz"
-  sha256 "abb277f3898467b51994e39ed0f4b38fc9aec79b98b126c6d17d971716612d82"
+  url "https://gitlab.com/morpheus.lab/morpheus/-/archive/v2.3.7/morpheus-v2.3.7.tar.gz"
+  sha256 "ad5694a098e4752db53659ee983c3ae417a43747320e73c3005f6cf88b52d55c"
   license "BSD-3-Clause"
 
   livecheck do
     url :stable
     regex(/^v?(\d+(?:\.\d+)+(?:_?\d+)?)$/i)
-  end
-
-  bottle do
-    root_url "https://github.com/morpheus-lab/homebrew-morpheus/releases/download/morpheus-2.3.6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "0c2797f3a0745296b99d66d2d901ae6e2982cefd76464aecd0306ea84ca6fee4"
   end
 
   option "with-sbml", "Enable SBML import via the internal libSBML build"
@@ -49,32 +44,19 @@ class Morpheus < Formula
 
     if OS.mac?
       bin.write_exec_script "#{prefix}/Morpheus.app/Contents/MacOS/morpheus"
-
-      (bin/"morpheus-gui").write <<~EOS
-        #!/bin/bash
-        open #{prefix}/Morpheus.app
-      EOS
-      (bin/"morpheus-gui").chmod 0555
+      bin.write_exec_script "#{prefix}/Morpheus.app/Contents/MacOS/morpheus-gui"
     end
   end
 
   def post_install
-    if OS.mac?
+    if OS.mac? && File.read("#{prefix}/Morpheus.app/Contents/Info.plist").include?("HOMEBREW_BIN_PATH")
       # Set PATH environment variable including Homebrew prefix in macOS app bundle
-      inreplace "#{prefix}/Morpheus.app/Contents/Info.plist", "<key>CFBundleExecutable</key>",
-        <<~EOS.chomp
-          <key>LSEnvironment</key>
-          <dict>
-              <key>PATH</key>
-              <string>#{ENV["PATH"]}</string>
-          </dict>
-          <key>CFBundleExecutable</key>
-        EOS
+      inreplace "#{prefix}/Morpheus.app/Contents/Info.plist", "HOMEBREW_BIN_PATH", "#{HOMEBREW_PREFIX}/bin"
     end
   end
 
   def caveats
-    if OS.mac?
+    on_macos do
       <<~EOS
         To start the Morpheus GUI, type the following command:
 
@@ -83,8 +65,6 @@ class Morpheus < Formula
         Or add Morpheus to your Applications folder with:
 
           ln -sf #{opt_prefix}/Morpheus.app /Applications
-
-        For more information about this release, visit: https://morpheus.gitlab.io/download/latest/
       EOS
     end
   end
