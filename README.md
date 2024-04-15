@@ -8,12 +8,13 @@
 [![GitLab forks](https://img.shields.io/gitlab/forks/morpheus.lab/morpheus?style=social)](https://gitlab.com/morpheus.lab/morpheus)
 [![GitLab stars](https://img.shields.io/gitlab/stars/morpheus.lab/morpheus?style=social)](https://gitlab.com/morpheus.lab/morpheus)
 
-[Morpheus](https://morpheus.gitlab.io/download/latest/) formulae for the [Homebrew](https://brew.sh/) package manager.
+[Special Morpheus formulae](https://morpheus.gitlab.io/faq/installation/macos/#install-other-morpheus-versions) of the recent release for the [Homebrew](https://brew.sh/) package manager.
+
+> [!WARNING]
+> This Tap **does not contain the official stable release** of Morpheus! Please refer to the [Morpheus download page](https://morpheus.gitlab.io/download/latest/) for this.
 
 > [!NOTE]
-> For a brief and complete overview of all **installation options** for Morpheus, please refer to the [Morpheus download page](https://morpheus.gitlab.io/download/latest/).
-
-For alternate versions of Morpheus, see [`homebrew-morpheus-versions`](https://github.com/morpheus-lab/homebrew-morpheus-versions).
+> For **alternate unstable or outdated** versions of Morpheus, see [`homebrew-morpheus-versions`](https://github.com/morpheus-lab/homebrew-morpheus-versions).
 
 ## User Guide
 ### Install Homebrew
@@ -28,15 +29,15 @@ If not already done, install Homebrew first.
 
 #### 1. Tap
 
-If you have never used Homebrew to install Morpheus before, add this Morpheus tap first:
+If you have never used this Homebrew Tap to install special versions of Morpheus before, add this Morpheus Tap first:
 
     brew tap morpheus-lab/morpheus
 
 #### 2. Install
 
-Simply install the latest version of Morpheus with:
+Simply install Morpheus from this Tap with:
 
-    brew install morpheus
+    brew install morpheus-lab/morpheus/morpheus
 
 And follow possibly emerging instructions from Homebrew.
 
@@ -62,7 +63,7 @@ Upgrade everything with:
 
 Or upgrade only Morpheus with:
 
-    brew upgrade morpheus
+    brew upgrade morpheus-lab/morpheus/morpheus
 
 More information about updating and, if desired, how to prevent Morpheus from being automatically updated by Homebrew, etc. can be found in the [Homebrew FAQ](https://docs.brew.sh/FAQ).
 
@@ -82,11 +83,11 @@ To list all versions available online, you can simply do a ```brew search```:
 
 Delete Morpheus with:
 
-    brew uninstall morpheus
+    brew uninstall morpheus-lab/morpheus/morpheus
 
 Forcibly remove Morpheus along with deleting all it's versions:
 
-    brew uninstall --force morpheus
+    brew uninstall --force morpheus-lab/morpheus/morpheus
 
 ## Maintainer Guidelines
 
@@ -108,15 +109,15 @@ When a pull request making changes to a formula (or formulae) becomes green (all
 
 ### Get GitHub Workflows
 
-The latest available GitHub workflows created with the [`brew tap-new`](https://docs.brew.sh/Manpage#tap-new-options-userrepo) command can be found in the Homebrew project under [`Homebrew/brew/Library/Homebrew/dev-cmd/tap-new.rb`](https://github.com/Homebrew/brew/blob/master/Library/Homebrew/dev-cmd/tap-new.rb). The two required GitHub workflow files `publish.yml` and `tests.yml` are embedded in `tap-new.rb` and should from time to time be copied from there and updated in the Morpheus tap.
+The latest available GitHub workflows created with the [`brew tap-new`](https://docs.brew.sh/Manpage#tap-new-options-userrepo) command can be found in the Homebrew project under [`Homebrew/brew/Library/Homebrew/dev-cmd/tap-new.rb`](https://github.com/Homebrew/brew/blob/master/Library/Homebrew/dev-cmd/tap-new.rb). The two required GitHub workflow files `publish.yml` and `tests.yml` are embedded in `tap-new.rb` and should from time to time be copied from there and updated in the Morpheus Tap.
 
-Or you simply create a new tap with e.g.
+Or you simply create a new Tap with e.g.
 
     brew tap-new morpheus-lab/morpheus-tap-new 
 
 and this way generate two new YAML files which can be taken directly from the corresponding subfolder of the tap (in this example `/opt/homebrew/Library/Taps/morpheus-lab/homebrew-morpheus-tap-new/.github/workflows`).
 
-If the second method is used, delete the temporary tap with
+If the second method is used, delete the temporary Tap with
 
     brew untap morpheus-lab/homebrew-morpheus-tap-new
 
@@ -130,12 +131,12 @@ See also the [Homebrew-Core Maintainer Guide](https://github.com/Homebrew/brew/b
 
 Prepare the formula for eventual bottling during installation, skipping any post-install steps:
 
-    brew install --build-bottle morpheus
+    brew install --build-bottle morpheus-lab/morpheus/morpheus
 
 Generate a bottle (binary package) from a formula that was installed with
 `--build-bottle` and write the bottle information to a JSON file in your working directory:
 
-    brew bottle --no-rebuild --json morpheus
+    brew bottle --no-rebuild --json morpheus-lab/morpheus/morpheus
 
 Now, add the new bottle block line to the formula, e.g.:
 
@@ -168,15 +169,15 @@ Or upload bottle to GitHub Packages (Docker):
 
 Check formula for Homebrew coding style violations:
 
-    brew audit morpheus
+    brew audit morpheus-lab/morpheus/morpheus
 
-Or check the whole tap:
+Or check the whole Tap:
 
     brew audit --tap morpheus-lab/morpheus
 
 If necessary, let `brew` fix them automatically:
 
-    brew audit --fix morpheus
+    brew audit --fix morpheus-lab/morpheus/morpheus
 
 Check formulae for conformance to Homebrew style guidelines:
 
