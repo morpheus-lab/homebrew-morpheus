@@ -1,5 +1,5 @@
 class Morpheus < Formula
-  desc "Modelling environment for multi-cellular systems biology"
+  desc "Modeling environment for multi-cellular systems biology"
   homepage "https://morpheus.gitlab.io/"
   url "https://gitlab.com/morpheus.lab/morpheus/-/archive/v2.3.7/morpheus-v2.3.7.tar.gz"
   sha256 "ad5694a098e4752db53659ee983c3ae417a43747320e73c3005f6cf88b52d55c"
@@ -28,11 +28,12 @@ class Morpheus < Formula
   uses_from_macos "zlib"
 
   def install
-    args = []
-    args << "-G Ninja"
+    # has to build with Ninja until: https://gitlab.kitware.com/cmake/cmake/-/issues/25142
+    args = ["-G Ninja"]
 
     if OS.mac?
       args << "-DMORPHEUS_RELEASE_BUNDLE=ON"
+      args << "-DBREW_FORMULA_DEPLOYMENT=ON"
 
       # SBML import currently disabled by default due to libSBML build errors with some macOS SDKs
       args << "-DMORPHEUS_SBML=OFF" if build.without? "sbml"
@@ -42,17 +43,13 @@ class Morpheus < Formula
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
 
-    if OS.mac?
-      bin.write_exec_script "#{prefix}/Morpheus.app/Contents/MacOS/morpheus"
-      bin.write_exec_script "#{prefix}/Morpheus.app/Contents/MacOS/morpheus-gui"
-    end
-  end
+    return unless OS.mac?
 
-  def post_install
-    if OS.mac? && File.read("#{prefix}/Morpheus.app/Contents/Info.plist").include?("HOMEBREW_BIN_PATH")
-      # Set PATH environment variable including Homebrew prefix in macOS app bundle
-      inreplace "#{prefix}/Morpheus.app/Contents/Info.plist", "HOMEBREW_BIN_PATH", "#{HOMEBREW_PREFIX}/bin"
-    end
+    bin.write_exec_script "#{prefix}/Morpheus.app/Contents/MacOS/morpheus"
+    bin.write_exec_script "#{prefix}/Morpheus.app/Contents/MacOS/morpheus-gui"
+
+    # Set PATH environment variable including Homebrew prefix in macOS app bundle
+    inreplace "#{prefix}/Morpheus.app/Contents/Info.plist", "HOMEBREW_BIN_PATH", "#{HOMEBREW_PREFIX}/bin"
   end
 
   def caveats
@@ -65,6 +62,8 @@ class Morpheus < Formula
         Or add Morpheus to your Applications folder with:
 
           ln -sf #{opt_prefix}/Morpheus.app /Applications
+
+        For more information about this release, visit: https://morpheus.gitlab.io/download/latest/
       EOS
     end
   end
