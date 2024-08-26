@@ -1,8 +1,8 @@
 class Morpheus < Formula
   desc "Modeling environment for multi-cellular systems biology"
   homepage "https://morpheus.gitlab.io/"
-  url "https://gitlab.com/morpheus.lab/morpheus/-/archive/v2.3.7/morpheus-v2.3.7.tar.gz"
-  sha256 "ad5694a098e4752db53659ee983c3ae417a43747320e73c3005f6cf88b52d55c"
+  url "https://gitlab.com/morpheus.lab/morpheus/-/archive/v2.3.8/morpheus-v2.3.8.tar.gz"
+  sha256 "d4f4d3434fadbb149a52da2840d248176fe216a515f50a7ef904e22623f2e85c"
   license "BSD-3-Clause"
 
   livecheck do
@@ -16,12 +16,12 @@ class Morpheus < Formula
   depends_on "cmake" => :build
   depends_on "doxygen" => :build
   depends_on "ninja" => :build
+  depends_on "ffmpeg"
   depends_on "gnuplot"
   depends_on "graphviz"
   depends_on "libomp"
   depends_on "libtiff"
   depends_on "qt@5"
-  depends_on "ffmpeg" => :recommended # Runtime dependencies
 
   uses_from_macos "bzip2"
   uses_from_macos "libxml2"
